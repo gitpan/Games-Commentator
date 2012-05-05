@@ -1,0 +1,127 @@
+=head1 NAME
+
+Games::Commentator - make a human-like comment
+
+=head1 SYNOPSIS
+
+    use Games::Commentator 'make_comment';
+    my $comment = make_comment ({
+        organization => 'British Airways',
+        person => 'Richard Branson',
+        about => 'the cost of flights',
+    });
+        
+The contents of C<$comment> are a random comment, something like this:
+
+Seriously, people. Bit of insight might be in order. Am afraid
+Richard Branson is as useful as a chocolate tea pot. Even when the
+most educated fall prey to the tentacles of the cost of flying,
+one can well imagine the plight of vacuous zeros who easily falter
+in the heat of the moment. You will struggle to find a bigger
+collection of wimps and sheep than British Airways. Crystal-clear
+answer to self-evident question. No.
+
+Many people will think this was written by a person rather than a
+computer.
+
+=head1 FUNCTIONS
+
+=head2 make_comment
+
+    my $comment = make_comment ({
+        organization => 'British Airways',
+        person => 'Richard Branson',
+        about => 'the cost of flights',
+    });
+        
+The contents of C<$comment> are a random comment. All of the variables are optional. There are currently four variables:
+
+=over
+
+=item organization
+
+An organization about which the comment discusses, usually in a derogatory way.
+
+=item person
+
+A human being about whom the comment discusses, usually in a
+derogatory way. The default sex is male. To specify female, use the
+"sex" option.
+
+=item sex
+
+Either 'male' or 'female' in lower case. This controls whether the
+pronoun is "he" or "she", "him" or "her", etc.
+
+=item about
+
+A topic about which the comment discusses, usually in a derogatory way.
+
+=back
+
+=head2 get_variables
+
+    use Games::Commentator 'get_variables';
+    my @variables = get_variables ();
+
+Get a list of the variables which can be sent to L</make_comment>.
+
+=head1 TO DO
+
+=head2 Add optional spelling mistakes
+
+Add an option to put in spelling mistakes to the output, to make it
+look more like a real comment.
+
+=head2 Add a seed option
+
+Add a seed option so that results can be reproduced.
+
+=head1 SCRIPT
+
+There is a script called "comment" in the distribution. Run on its own
+it produces a comment without any "about", etc. There are command-line
+options to supply "about" and so on:
+
+    comment -about "Richard Branson"
+
+etc.
+
+=head1 ABOUT
+
+This computer program is based on an idea of the late Raymond
+Christopher Davis. Ray's original notion was to make a computer
+program which produced headlines like those of "The Sun" newspaper
+from random phrases. The current program adjusts this notion to use
+random phrases to generate web comments. Amazingly enough, many people
+think that these comments are made by a human.
+
+Another inspiration for the project was the
+L<Twat-o-tron|http://ifyoulikeitsomuchwhydontyougolivethere.com/the-twat-o-tron/>.
+
+The comment module has been in action for some time at the following
+web site: L<http://www.lemoda.net/games/fake-comments/>. You will find
+its output under YouTube videos, on Facebook pages, etc.
+
+The comments do appear to come from a human, but please do not use
+this module for spamming.
+
+The comments themselves are largely garnered from British news
+websites and then adapted to make them more random by substituting
+similar words. The tone of the output comments is one of anger and
+frustration, because it seemed more amusing to have a computer make
+such comments.
+
+=head1 AUTHOR
+
+Ben Bullock, <bkb@cpan.org>
+
+=head1 COPYRIGHT & LICENCE
+
+This package and associated files are copyright (C) 2012 Ben Bullock.
+
+You can use, copy, modify and redistribute this package and associated
+files under the Perl Artistic Licence or the GNU General Public
+Licence.
+
+

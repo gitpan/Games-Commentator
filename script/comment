@@ -1,0 +1,15 @@
+#!/home/ben/software/install/bin/perl
+use warnings;
+use strict;
+use Games::Commentator qw/make_comment get_variables/;
+use Getopt::Long;
+my %params;
+my @fields = get_variables;
+my %options;
+for my $field (@fields) {
+    $options{"$field=s"} = \$params{$field};
+}
+GetOptions (%options);
+my $comment = make_comment (\%params);
+binmode STDOUT, ":utf8";
+print "$comment\n\n";
